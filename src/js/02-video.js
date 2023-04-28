@@ -5,11 +5,10 @@ const player = new Player(iframe);
 
 const VIDEO_CURRENT_TIME = 'videoplayer-current-time';
 
-const onPlay = function () {
-  throttle(function (data) {
-    localStorage.setItem(VIDEO_CURRENT_TIME, data.seconds);
-  }, 1000);
-};
+const onPlay = throttle(function (data) {
+  localStorage.setItem(VIDEO_CURRENT_TIME, data.seconds);
+}, 1000);
+
 player.on('timeupdate', onPlay);
 const savedTime = localStorage.getItem(VIDEO_CURRENT_TIME);
 if (savedTime) {
