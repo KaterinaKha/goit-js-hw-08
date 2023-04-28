@@ -16,8 +16,8 @@ data.email = initialData.email || '';
 data.message = initialData.message || '';
 
 function inputData(e) {
-  data.email = e.target.value;
-  data.message = e.target.value;
+  data[e.target.name] = e.target.value;
+
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data));
 }
 
