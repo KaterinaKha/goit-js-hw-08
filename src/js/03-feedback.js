@@ -12,8 +12,8 @@ form.addEventListener('input', throttle(inputData, 500));
 form.addEventListener('submit', submitFormHandler);
 
 const initialData = getFeedbackStateFromStorage();
-data.email = initialData.email || '';
-data.message = initialData.message || '';
+form['email'].value = initialData.email || '';
+form['message'].value = initialData.message || '';
 
 function inputData(e) {
   data[e.target.name] = e.target.value;
@@ -37,6 +37,5 @@ function submitFormHandler(e) {
   }
 
   form.reset(data);
-  localStorage.removeItem(LOCALSTORAGE_KEY);
   console.log(data);
 }
