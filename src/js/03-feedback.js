@@ -17,7 +17,6 @@ form['message'].value = initialData.message || '';
 
 function inputData(e) {
   data[e.target.name] = e.target.value;
-
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(data));
 }
 
@@ -37,5 +36,6 @@ function submitFormHandler(e) {
   }
 
   form.reset(data);
+  localStorage.removeItem(LOCALSTORAGE_KEY);
   console.log(data);
 }
