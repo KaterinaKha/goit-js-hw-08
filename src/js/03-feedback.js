@@ -25,10 +25,11 @@ function getFeedbackStateFromStorage() {
 }
 function submitFormHandler(e) {
   e.preventDefault();
-  if (!data.email || !data.message) {
+  if (!form['email'].value || !form['message'].value) {
     return alert('Будь ласка заповніть всі поля');
   }
-  console.log(data);
+
   form.reset(data);
+  console.log(data);
   localStorage.removeItem(LOCALSTORAGE_KEY);
 }
